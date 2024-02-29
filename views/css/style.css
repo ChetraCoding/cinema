@@ -1,0 +1,178 @@
+body {
+	background: white;
+}
+
+#simple-search{
+    width: 350px;
+}
+#card-shows{
+	height: 65vh;
+	cursor: pointer;
+}
+
+#form-date{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+#form-date label{
+    margin: 15px;
+}
+
+/* Banner Animation ================= */
+.slider{
+    height: 85vh;
+	position: relative;
+	width: 100%;
+}
+
+.myslide{
+	height: 100%;
+	display: none;
+	overflow: hidden;
+}
+
+.prev, .next{
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-size: 50px;
+	padding: 15px;
+	cursor: pointer;
+	color: #fff;
+	transition: 0.1s;
+	user-select: none;
+}
+
+.next{
+	right: 0;
+}
+.dotsbox{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 20px;
+	cursor: pointer;
+}
+.dot{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.active, .dot:hover{
+	border-color: #0f172a;
+}
+
+.login-contanier, .main-register, .detailperson, .resetpassword {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
+
+.txt{
+	position: absolute;
+	color: #fff;
+	letter-spacing: 2px;
+	line-height: 35px;
+	top: 40%;
+	left: 15%;
+	-webkit-animation-name: posi;
+  	-webkit-animation-duration: 2s;
+  	animation-name: posi;
+  	animation-duration: 2s;
+	z-index: 1;
+}
+
+@-webkit-keyframes posi {
+  from {left: 25%;}
+  to {left: 15%;}
+}
+
+
+@keyframes posi {
+  from {left: 25%;}
+  to {left: 15%;}
+}
+
+.txt h1{
+	color: #00a7ff; /* blue */
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+.txt p{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.myslide > img{
+	transform: scale(1.1, 1.1);
+	-webkit-animation-name: zoomin;
+  	-webkit-animation-duration: 40s;
+  	animation-name: zoomin;
+  	animation-duration: 40s;
+}
+@-webkit-keyframes zoomin {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.2, 1.2);}
+}
+
+
+@keyframes zoomin {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.2, 1.2);}
+}
+
+iframe{
+	width: 100% !important;;
+    height:100% !important;
+}
+
+.delete-dailog,
+#popup,
+.logout-dailog{
+    width: 100%;
+	height: 100vh;
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+	background: #0b0b0bba;
+}
+.dailog-delete-show{
+  height: 50vh;
+  width: 30%;
+}
+
+.qr-code {
+	height: 70vh;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dailog-card {
+	height: 50vh;
+	width: 30%;
+	margin: auto;
+	margin-top: 100px;
+}

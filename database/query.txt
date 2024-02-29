@@ -1,0 +1,44 @@
+CREATE VIEW total_buyings AS
+SELECT SUM(t.total_tickets) as "total_bought", rd.release_date_id, rd.date, rd.start_time,rd.end_time, s.* FROM shows s 
+LEFT JOIN release_dates rd ON rd.show_id = s.show_id
+LEFT JOIN ticket t ON t.release_date_id = rd.release_date_id
+GROUP BY rd.release_date_id;
+
+CREATE VIEW seller_shows AS
+SELECT s.*, v.name, v.user_id FROM shows s
+INNER JOIN venues v ON v.venue_id = s.venue_id;
+
+CREATE VIEW show_tickets AS
+SELECT rd.*, SUM(t.total_tickets) AS "total_tickets" FROM ticket t 
+INNER JOIN release_dates rd ON rd.release_date_id = t.release_date_id
+GROUP BY rd.release_date_id;
+
+CREATE VIEW customer_tickets AS
+SELECT t.ticket_id, t.user_id, u.first_name, u.last_name, t.total_tickets, rd.release_date_id,
+rd.date, rd.start_time, rd.end_time, s.*, v.name, v.venue_address FROM ticket t 
+INNER JOIN release_date_shows rd ON rd.release_date_id = t.release_date_id
+INNER JOIN shows s ON s.show_id = rd.show_id 
+INNER JOIN venues v ON v.venue_id = s.venue_id
+INNER JOIN users u ON u.user_id = t.user_id;
+
+======================================
+
+CREATE VIEW release_date_shows AS
+SELECT t.*, rd.date, rd.start_time, rd.end_time, v.name, s.* FROM ticket t 
+INNER JOIN release_dates rd ON rd.release_date_id = t.release_date_id
+INNER JOIN shows s ON s.show_id = rd.show_id
+INNER JOIN venues v ON v.venue_id = s.venue_id;
+
+***
+CREATE VIEW release_date_shows AS
+SELECT rd.release_date_id, rd.date, rd.start_time, rd.end_time, s.*, v.name, v.venue_address FROM release_dates rd 
+INNER JOIN shows s ON s.show_id = rd.show_id
+INNER JOIN venues v ON v.venue_id = s.venue_id;
+
+CREATE VIEW show_venue AS
+SELECT s.*, v.name, v.venue_address, v.seat_row, v.number_column FROM shows s 
+INNER JOIN venues v ON v.venue_id = s.venue_id;
+
+CREATE VIEW seat_ticket AS
+SELECT t.*, s.seat_name FROM ticket t 
+INNER JOIN seats s ON s.ticket_id = t.ticket_id;
